@@ -28,7 +28,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
 	 */
 	public List<Object> find(String mapper, Object object) {
 		if(object != null) {
-			return this.getSqlSession().selectList(mapper);
+			return this.getSqlSession().selectList(mapper, object);
 		}
 		return this.getSqlSession().selectList(mapper);
 	}
