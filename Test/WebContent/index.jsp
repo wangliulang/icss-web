@@ -10,7 +10,6 @@
 	<script type="text/javascript" src="easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
 </head>
-<body>
 	
 	
 	<body class="easyui-layout">
@@ -33,10 +32,8 @@
 		<div data-options="border:true,region:'center'" title=" " >
 			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
 				<div title="About" data-options="" style="padding:10px">
-					123<br/>
-					123<br/>
-					123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>
-					123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>123<br/>
+					<input type="button" id="get" value="get" />
+					<input type="button" id="send" value="send" />
 				</div>
 				<div title="DataGrid" data-options="closable:true" style="padding:5px">
 				</div>
@@ -44,6 +41,33 @@
 			</div>
 		</div>
 	</body>
-
-</body>
+<script type="text/javascript">
+	$("#get").on("click", function() {
+		$.post("json?key1=123&key2=中文", function(data){
+			var json = eval(data);
+			alert(json.length);
+		});
+	});
+	
+	$("#send").on("click", function() {
+		var saveDataAry=[];  
+	    var data1={"userName":"test","address":"gz"};  
+	    var data2={"userName":"ququ","address":"gr"};  
+	    saveDataAry.push(data1);  
+	    saveDataAry.push(data2);         
+	    $.ajax({ 
+	        type:"POST", 
+	        url:"sendjson", 
+	        dataType:"json",      
+	        contentType:"application/json",               
+	        data:JSON.stringify(saveDataAry), 
+	        success:function(data){ 
+	           
+	        },
+	        error:function(data){ 
+	           alert("oh no!");
+	        }
+	     });
+	});
+</script>
 </html>

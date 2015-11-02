@@ -19,9 +19,37 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<!-- 异常处理,非必须,可以去掉 -->
+	<!-- 异常处理 -->
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="exception"/>
         <property name="warnLogCategory" value="warn"/>
+    </bean>
+    
+    <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" /> -->
+    
+    <!-- http消息转换为json -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+	   <property name="messageConverters">  
+		   <list>  
+		   	<ref bean="stringConverter"/>
+		   	<ref bean="jsonHttpMessageConverter"/>  
+		   </list>  
+	   </property>  
+	</bean>  
+	<bean id="jsonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+            <list>
+                <value>text/html; charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+	</bean>
+	<bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/plain;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
     </bean>
 </beans>
