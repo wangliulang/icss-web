@@ -13,10 +13,17 @@
 	<!-- 指定扫描组件的包 -->
     <context:component-scan base-package="com.icss.*">
     </context:component-scan>
+    
+    <!-- 不被SpringSecurity处理的访问路径，需要定义在前面  定义后访问对应url的请求不被拦截-->
+    <http pattern="/easyui/**" security="none" />
+    <http pattern="/login.jsp" security="none" />
+    
     <!-- 自动配置模式，拦截所有请求，有ROLE_USER才可以通过 -->
     <http auto-config="true">
         <intercept-url pattern="/**" access="ROLE_USER"/>
+        <form-login login-page="/login.jsp" default-target-url="/login_success" authentication-failure-url="/login_fail"/>
     </http>
+    
     <!-- 认证管理器。用户名密码都集成在配置文件中 --> 
     <!--  
     <authentication-manager>
