@@ -28,7 +28,8 @@ public class AuthenticationService implements UserDetailsService{
 	@SuppressWarnings("rawtypes")
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		System.out.println(baseDao.find("test.mapper.selectAll", 1).size());
+		//throw new UsernameNotFoundException(username+" not exist!");
+		/*System.out.println(baseDao.find("test.mapper.selectAll", 1).size());
 		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 		com.icss.framework.model.User ad = (com.icss.framework.model.User)baseDao.find("test.mapper.selectAll", null).get(0);
 		System.out.println(ad.getUsername());
@@ -40,7 +41,7 @@ public class AuthenticationService implements UserDetailsService{
 			userList.add(user);
 		}
 		baseService.insertList("test.mapper.insertUser", userList);
-		System.out.println(username);
+		System.out.println(username);*/
 		List authList = new ArrayList();
 		authList.add(new SimpleGrantedAuthority("ROLE_USER"));
 		// 按照现象来说，返回用户对象之后，spring security会比较用户输入的密码与用户对象中的密码（此行中的"1234"）,如果不相等则登录失败
