@@ -14,7 +14,9 @@
 	
 	<body class="easyui-layout">
 		<div data-options="border:false,region:'north'" style="height:100px">
-			<div style="background-color:black;height:100%;width:100%;color:white;">helloworld</div> 
+			<div style="background-color:black;height:100%;width:100%;color:white;">
+				<a href="j_spring_security_logout">登出</a>
+			</div> 
 		</div>
 		<div data-options="border:true,region:'west'" title=" " style="width:180px" >
 			<div class="easyui-accordion" data-options="fit:true,border:false">
