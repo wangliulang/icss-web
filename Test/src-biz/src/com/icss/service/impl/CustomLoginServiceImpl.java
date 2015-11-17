@@ -1,12 +1,11 @@
 package com.icss.service.impl;
 
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.icss.framework.service.ILoginService;
+import com.icss.framework.service.IDefaultLoginService;
 
-@Service(value="loginService")
-public class LoginServiceImpl implements ILoginService{
+@Service(value="defaultLoginService")
+public class CustomLoginServiceImpl implements IDefaultLoginService{
 
 	/**
 	 * 判断同户名是否存在

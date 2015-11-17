@@ -11,18 +11,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.icss.framework.service.ILoginService;
+import com.icss.framework.service.IDefaultLoginService;
 
 @Service(value="authService")
 public class AuthenticationService implements UserDetailsService{
 
 	
 	@Autowired
-	private ILoginService loginService;
+	private IDefaultLoginService defaultLoginService;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		boolean userExist = loginService.isUserExist(username);
+		boolean userExist = defaultLoginService.isUserExist(username);
         if (!userExist) { 
             throw new UsernameNotFoundException(username);  
         }
@@ -35,6 +35,6 @@ public class AuthenticationService implements UserDetailsService{
         boolean accountNonLocked = true;
 		
 		// 按照现象来说，返回用户对象之后，spring security会比较用户输入的密码与用户对象中的密码（此行中的"1234"）,如果不相等则登录失败
-		return new User(username, loginService.findUserpassword(username), enables, accountNonExpired, credentialsNonExpired, accountNonLocked, authList);
+		return new User(username, defaultLoginService.findUserpassword(username), enables, accountNonExpired, credentialsNonExpired, accountNonLocked, authList);
 	}
 }
