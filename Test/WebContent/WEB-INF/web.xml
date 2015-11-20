@@ -46,7 +46,7 @@
   
   <servlet>
   	<servlet-name>testServlet</servlet-name>
-  	<servlet-class>com.icss.dao.TestServlet</servlet-class>
+  	<servlet-class>com.icss.framework.dao.TestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>testServlet</servlet-name>

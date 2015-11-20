@@ -20,7 +20,7 @@
     -->
 	<!--  查询所有记录  -->
     <select id="selectAll" resultType="Map" parameterType="int">
-        select * from doctype where doctype_id = #{id};
+        select * from doctype;
     </select>
 	<!--  删除记录  
     <delete id="deleteBlog" parameterType="int">

@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +19,16 @@ import com.icss.framework.controller.BaseController;
 
 @Controller  
 public class TestController extends BaseController{
+	
+	@Autowired
+	private  HttpServletRequest request;
+	
+	@Autowired
+	private  HttpServletResponse response;
+	
 	@RequestMapping(value = "/helloworld")  
     public String helloworld() {  
+		System.out.println(request.getContextPath());
 		//System.out.println(this.baseService.find("test.mapper.selectAll", null));
         // return "success"; //Ìø×ªµ½successÒ³Ãæ  
         return "index";
