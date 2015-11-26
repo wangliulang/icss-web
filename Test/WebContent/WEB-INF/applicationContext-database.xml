@@ -15,10 +15,11 @@
 	<!-- 数据源 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://10.6.148.80:3306/mydata?useUnicode=true&amp;characterEncoding=UTF-8" />
-		<property name="username" value="dcuser" />
-		<property name="password" value="032529" />
+		<property name="url" value="jdbc:mysql://121.40.192.196:3306/mymjxt?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="jifang1303" />
 	</bean>
+	
 	
 	<!-- 开启自动绑定注解 -->
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
@@ -30,6 +31,10 @@
 		<property name="mapperLocations" value="classpath*:com/icss/**/*Mapper.xml" />
 		<!-- 实体类所在包名，指定后会自动取对应包中的类 -->
 		<property name="typeAliasesPackage" value="com.icss.framework.model,com.icss.model" />
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">  
+	    <constructor-arg index="0" ref="sqlSessionFactory"/>  
 	</bean>
 	
 	<!-- spring事务管理 -->

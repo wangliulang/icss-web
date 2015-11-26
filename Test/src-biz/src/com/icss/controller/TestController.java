@@ -1,5 +1,10 @@
 package com.icss.controller;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,13 +28,10 @@ public class TestController extends BaseController{
 	@Autowired
 	private  HttpServletRequest request;
 	
-	@Autowired
-	private  HttpServletResponse response;
-	
 	@RequestMapping(value = "/helloworld")  
     public String helloworld() {  
 		System.out.println(request.getContextPath());
-		//System.out.println(this.baseService.find("test.mapper.selectAll", null));
+		System.out.println("**************************************" + this.baseService.find("test.mapper.selectAll", null));
         // return "success"; //Ìø×ªµ½successÒ³Ãæ  
         return "index";
 	}
@@ -62,5 +64,23 @@ public class TestController extends BaseController{
 	@RequestMapping(value = "/sendjson")
 	public void sendjson(@RequestBody Map[] users){
 		System.out.println(users.length);
+		while(true) {
+			try {
+				this.baseService.find("test.mapper.selectAll", null);
+	//			Class.forName("com.mysql.jdbc.Driver");
+	//			String url="jdbc:mysql://121.40.192.196:3306/mymjxt?user=root&password=jifang1303&useUnicode=true&characterEncoding=UTF-8";
+	//			
+	//			Connection con = DriverManager.getConnection(url);
+	//			Statement stmt = con.createStatement();
+	//			String query = "select * from s_mjxt_record_info";
+	//			ResultSet rs=stmt.executeQuery(query);
+	//			con.close();
+	//			System.out.println("ok/***************************************/");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				break;
+			}
+		}
 	}
 }

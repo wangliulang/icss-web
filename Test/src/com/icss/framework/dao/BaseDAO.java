@@ -3,10 +3,9 @@ package com.icss.framework.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 @Service(value="baseDao")
@@ -15,10 +14,15 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
 	//private  ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:applicationContext-database.xml");
 	//private  SqlSessionFactory sessionFactory= (SqlSessionFactory)ac.getBean("sqlSessionFactory");
 	
-	@Autowired 
+	/*@Autowired 
     public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {  
         super.setSqlSessionFactory(sqlSessionFactory);  
-    }
+    }*/
+	
+	@Autowired
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		super.setSqlSessionTemplate(sqlSessionTemplate);
+	}
 	
 	
 	/**

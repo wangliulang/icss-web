@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="test.mapper">
+<mapper namespace="dv.mapper">
 	<!--  新增记录  -->
-    <insert id="insertUser" parameterType="Map" useGeneratedKeys="true" keyProperty="id">
-        insert into user(username) values(#{username})
+    <insert id="insertUser" parameterType="Map" useGeneratedKeys="true" keyProperty="record_id">
+         insert into s_mjxt_record_info(mac,qrcode,generationtime,state,ipid) values(#{m_value},#{q_value},#{g_value},#{s_value},#{i_value})
     </insert>
     
 	<!--  查询单条记录  
@@ -19,13 +19,11 @@
     </update>
     -->
 	<!--  查询所有记录  -->
-    <select id="selectAll" resultType="Map" parameterType="int">
-        select * from s_mjxt_record_info;
-    </select>
-    
-    <!--  查询条件中带有中文  -->
-    <select id="selectChs" resultType="Map" parameterType="string">
-        select * from docinfo where docname like '%#{docname}%';
+    <select id="dv_selectAll" resultType="Map" parameterType="string">
+        <!-- select * from t_mjxt_yz_info where created_lr = #{lr} -->
+        select * from t_mjxt_yz_info where created_lr = #{lr}
+
+        
     </select>
 	<!--  删除记录  
     <delete id="deleteBlog" parameterType="int">
