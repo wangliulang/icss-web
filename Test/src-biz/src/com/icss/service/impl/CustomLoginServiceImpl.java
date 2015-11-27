@@ -8,17 +8,20 @@ import com.icss.framework.service.IDefaultLoginService;
 public class CustomLoginServiceImpl implements IDefaultLoginService{
 
 	/**
-	 * ÅĞ¶ÏÍ¬»§ÃûÊÇ·ñ´æÔÚ
+	 * åˆ¤æ–­åŒæˆ·åæ˜¯å¦å­˜åœ¨
 	 */
 	public boolean isUserExist(String username) {
 		return true;
 	}
 
 	/**
-	 * Í¨¹ıÓÃ»§Ãû·µ»ØÓÃ»§ÃÜÂë(Ä¬ÈÏ·µ»ØµÄÃÜÂëÒÑ¾­MD5¼ÓÃÜµÄÃÜÂë)
+	 * é€šè¿‡ç”¨æˆ·åè¿”å›ç”¨æˆ·å¯†ç (é»˜è®¤è¿”å›çš„å¯†ç å·²ç»MD5åŠ å¯†çš„å¯†ç )
 	 */
 	public String findUserpassword(String username) {
-		return "1234";
+		
+		org.springframework.security.authentication.encoding.Md5PasswordEncoder a = new org.springframework.security.authentication.encoding.Md5PasswordEncoder();
+		System.out.println(a.encodePassword("123456", null));
+		return "e10adc3949ba59abbe56e057f20f883e";// 123456
 	}
 
 }

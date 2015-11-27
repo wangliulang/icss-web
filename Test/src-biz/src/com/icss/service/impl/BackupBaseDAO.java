@@ -1,4 +1,4 @@
-package com.icss.framework.dao;
+package com.icss.service.impl;
 
 import java.util.List;
 
@@ -9,7 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
-@Service(value="backupBaseDao")
+import com.icss.framework.dao.IBaseDAO;
+
+/*@Service(value="backupBaseDao")*/
 public class BackupBaseDAO implements IBaseDAO{
 	
 	private ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:database-backup.xml");
@@ -19,7 +21,7 @@ public class BackupBaseDAO implements IBaseDAO{
 	
 	
 	/**
-	 * 多条数据条件查询	 
+	 * 澶氭潯鏁版嵁鏉′欢鏌ヨ	 
 	 * @param mapper
 	 * @param object
 	 */
@@ -31,7 +33,7 @@ public class BackupBaseDAO implements IBaseDAO{
 	}
 	
 	/**
-	 * 单条数据条件查询	 
+	 * 鍗曟潯鏁版嵁鏉′欢鏌ヨ	 
 	 * @param mapper
 	 * @param object
 	 */
@@ -43,7 +45,7 @@ public class BackupBaseDAO implements IBaseDAO{
 	}
 	
 	/**
-	 * 插入单条数据
+	 * 鎻掑叆鍗曟潯鏁版嵁
 	 * @param mapper
 	 * @param object
 	 */
@@ -52,7 +54,7 @@ public class BackupBaseDAO implements IBaseDAO{
  	}
 	
 	/**
-	 * 插入多条数据
+	 * 鎻掑叆澶氭潯鏁版嵁
 	 * @param mapper
 	 * @param objList
 	 */
@@ -63,7 +65,7 @@ public class BackupBaseDAO implements IBaseDAO{
 	}
 	
 	/**
-	 * 更新单条数据
+	 * 鏇存柊鍗曟潯鏁版嵁
 	 * @param mapper
 	 * @param object
 	 */
@@ -72,7 +74,7 @@ public class BackupBaseDAO implements IBaseDAO{
  	}
 	
 	/**
-	 * 更新多条数据
+	 * 鏇存柊澶氭潯鏁版嵁
 	 * @param mapper
 	 * @param objList
 	 */

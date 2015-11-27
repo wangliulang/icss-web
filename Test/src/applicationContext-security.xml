@@ -40,14 +40,14 @@
     -->
     <authentication-manager alias="myAuthenticationManager">
     	<authentication-provider user-service-ref="authService">
-    		<!--  <password-encoder hash="md5" ref="passwordEncoder"></password-encoder>-->
+    		<password-encoder hash="md5" ref="passwordEncoder"></password-encoder>
     	</authentication-provider>
     </authentication-manager>
     
-    <!-- 密码Md5加密 
+    <!-- 密码Md5加密 -->
     <beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder">
     	
-    </beans:bean>-->
+    </beans:bean>
     
     <!-- 自定义信息文件 用户显示登录异常信息 -->
     <beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

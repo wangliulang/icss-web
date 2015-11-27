@@ -26,7 +26,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
 	
 	
 	/**
-	 * 多条数据条件查询	 
+	 * 澶氭潯鏁版嵁鏉′欢鏌ヨ	 
 	 * @param mapper
 	 * @param object
 	 */
@@ -38,7 +38,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
 	}
 	
 	/**
-	 * 单条数据条件查询	 
+	 * 鍗曟潯鏁版嵁鏉′欢鏌ヨ	 
 	 * @param mapper
 	 * @param object
 	 */
@@ -50,7 +50,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
 	}
 	
 	/**
-	 * 插入单条数据
+	 * 鎻掑叆鍗曟潯鏁版嵁
 	 * @param mapper
 	 * @param object
 	 */
@@ -59,7 +59,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
  	}
 	
 	/**
-	 * 插入多条数据
+	 * 鎻掑叆澶氭潯鏁版嵁
 	 * @param mapper
 	 * @param objList
 	 */
@@ -70,7 +70,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
 	}
 	
 	/**
-	 * 更新单条数据
+	 * 鏇存柊鍗曟潯鏁版嵁
 	 * @param mapper
 	 * @param object
 	 */
@@ -79,7 +79,7 @@ public class BaseDAO extends SqlSessionDaoSupport implements IBaseDAO{
  	}
 	
 	/**
-	 * 更新多条数据
+	 * 鏇存柊澶氭潯鏁版嵁
 	 * @param mapper
 	 * @param objList
 	 */

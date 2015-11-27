@@ -32,13 +32,13 @@ public class TestController extends BaseController{
     public String helloworld() {  
 		System.out.println(request.getContextPath());
 		System.out.println("**************************************" + this.baseService.find("test.mapper.selectAll", null));
-        // return "success"; //Ìø×ªµ½successÒ³Ãæ  
+        // return "success"; //è·³è½¬åˆ°successé¡µé¢  
         return "index";
 	}
 	
 	/**
-	 * ·ÃÎÊÂ·¾¶Îª/Test/json?key1=123&key2=ÖĞÎÄ
-	 * Í¨¹ıurl»ñÈ¡²ÎÊı£¬·µ»Ø¶ÔÏó×Ô¶¯×ª»»Îªjson¶ÔÏó
+	 * è®¿é—®è·¯å¾„ä¸º/Test/json?key1=123&key2=ä¸­æ–‡
+	 * é€šè¿‡urlè·å–å‚æ•°ï¼Œè¿”å›å¯¹è±¡è‡ªåŠ¨è½¬æ¢ä¸ºjsonå¯¹è±¡
 	 * @param key1
 	 * @param key2
 	 * @return
@@ -57,30 +57,27 @@ public class TestController extends BaseController{
 	}
 	
 	/**
-	 * »ñÈ¡json¶ÔÏó£¬¿ÉÒÔ½ÓÊÕjsonÊı×é»òµ¥¸ö¶ÔÏó
-	 * ¿ÉÒÔÓÃmap»òpojo
+	 * è·å–jsonå¯¹è±¡ï¼Œå¯ä»¥æ¥æ”¶jsonæ•°ç»„æˆ–å•ä¸ªå¯¹è±¡
+	 * å¯ä»¥ç”¨mapæˆ–pojo
 	 * @param users
 	 */
 	@RequestMapping(value = "/sendjson")
 	public void sendjson(@RequestBody Map[] users){
 		System.out.println(users.length);
-		while(true) {
-			try {
-				this.baseService.find("test.mapper.selectAll", null);
-	//			Class.forName("com.mysql.jdbc.Driver");
-	//			String url="jdbc:mysql://121.40.192.196:3306/mymjxt?user=root&password=jifang1303&useUnicode=true&characterEncoding=UTF-8";
-	//			
-	//			Connection con = DriverManager.getConnection(url);
-	//			Statement stmt = con.createStatement();
-	//			String query = "select * from s_mjxt_record_info";
-	//			ResultSet rs=stmt.executeQuery(query);
-	//			con.close();
-	//			System.out.println("ok/***************************************/");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				break;
-			}
+		try {
+			this.baseService.find("test.mapper.selectAll", null);
+//			Class.forName("com.mysql.jdbc.Driver");
+//			String url="jdbc:mysql://121.40.192.196:3306/mymjxt?user=root&password=jifang1303&useUnicode=true&characterEncoding=UTF-8";
+//			
+//			Connection con = DriverManager.getConnection(url);
+//			Statement stmt = con.createStatement();
+//			String query = "select * from s_mjxt_record_info";
+//			ResultSet rs=stmt.executeQuery(query);
+//			con.close();
+//			System.out.println("ok/***************************************/");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

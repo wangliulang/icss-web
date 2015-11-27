@@ -34,7 +34,7 @@ public class AuthenticationService implements UserDetailsService{
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
 		
-		// °´ÕÕÏÖÏóÀ´Ëµ£¬·µ»ØÓÃ»§¶ÔÏóÖ®ºó£¬spring security»á±È½ÏÓÃ»§ÊäÈëµÄÃÜÂëÓëÓÃ»§¶ÔÏóÖĞµÄÃÜÂë£¨´ËĞĞÖĞµÄ"1234"£©,Èç¹û²»ÏàµÈÔòµÇÂ¼Ê§°Ü
+		// æŒ‰ç…§ç°è±¡æ¥è¯´ï¼Œè¿”å›ç”¨æˆ·å¯¹è±¡ä¹‹åï¼Œspring securityä¼šæ¯”è¾ƒç”¨æˆ·è¾“å…¥çš„å¯†ç ä¸ç”¨æˆ·å¯¹è±¡ä¸­çš„å¯†ç ï¼ˆæ­¤è¡Œä¸­çš„"1234"ï¼‰,å¦‚æœä¸ç›¸ç­‰åˆ™ç™»å½•å¤±è´¥
 		return new User(username, defaultLoginService.findUserpassword(username), enables, accountNonExpired, credentialsNonExpired, accountNonLocked, authList);
 	}
 }
