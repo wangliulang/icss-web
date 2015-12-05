@@ -1,2 +1,8 @@
+/applicationContext-database.xml
+/applicationContext-security.xml
+/c3p0_connection_pool
 /com/
+/db.properties
 /log4j.properties
+/messages_zh_CN.properties
+/mvc-config.xml

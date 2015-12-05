@@ -20,7 +20,12 @@
     -->
 	<!--  查询所有记录  -->
     <select id="selectAll" resultType="Map" parameterType="int">
-        select * from doctype where doctype_id = #{id};
+        select * from s_mjxt_record_info;
+    </select>
+    
+    <!--  查询条件中带有中文  -->
+    <select id="selectChs" resultType="Map" parameterType="string">
+        select * from docinfo where docname like '%#{docname}%';
     </select>
 	<!--  删除记录  
     <delete id="deleteBlog" parameterType="int">
