@@ -10,4 +10,12 @@
 		    VALUES  
     	(#{testblob,jdbcType=BLOB})
     </insert>
+    
+    <!--  新增记录  -->
+    <insert id="insertUser" parameterType="Map" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user  
+		    (username)  
+		    VALUES  
+    	(#{username})
+    </insert>
 </mapper>
