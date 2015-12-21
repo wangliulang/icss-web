@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.icss.framework.dao.BaseDAO;
 import com.icss.framework.service.IBaseService;
 
 @Service(value="baseService")
+@Transactional(propagation=Propagation.REQUIRED)
 public class BaseServiceImpl implements IBaseService{
 	@Autowired
 	private BaseDAO baseDao;
@@ -27,7 +29,6 @@ public class BaseServiceImpl implements IBaseService{
 		baseDao.insertOne(mapper, object);
 	}
 	
-	@Transactional
 	public void insertList(String mapper, List<Object> objectList){
 		baseDao.insertBatch(mapper, objectList);
 	}
@@ -36,7 +37,6 @@ public class BaseServiceImpl implements IBaseService{
 		baseDao.updateOne(mapper, object);
 	}
 	
-	@Transactional
 	public void updateList(String mapper, List<Object> objectList) {
 		baseDao.updateBatch(mapper, objectList);
 	}
