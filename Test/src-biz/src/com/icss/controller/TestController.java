@@ -26,12 +26,17 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.icss.framework.controller.BaseController;
+import com.icss.service.ITestTwoService;
+import com.icss.service.impl.TestTwoServiceImpl;
 
 @Controller  
 public class TestController extends BaseController{
 	
 	@Autowired
 	private  HttpServletRequest request;
+	
+	@Autowired
+	private ITestTwoService testTwoService;
 	
 	@RequestMapping(value = "/helloworld")  
     public String helloworld() {  
@@ -138,5 +143,10 @@ public class TestController extends BaseController{
             }  
               
         }  
+	}
+	
+	@RequestMapping(value = "/testtran")
+	public void testTran(){
+		testTwoService.insertUser();
 	}
 }

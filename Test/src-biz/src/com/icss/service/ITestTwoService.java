@@ -1,5 +1,5 @@
 package com.icss.service;
 
-public interface ITestService {
+public interface ITestTwoService {
 	void insertUser();
 }
