@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-8 19:01:35 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="WuyeTousu" table="WUYE_TOUSU" catalog="mymjxt">
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="xqId" type="string">
+            <column name="XQ_ID" length="50">
+                <comment>&#208;&#161;&#199;&#248;id</comment>
+            </column>
+        </property>
+        <property name="yonghuId" type="string">
+            <column name="YONGHU_ID" length="100">
+                <comment>&#211;&#195;&#187;&#167;ID</comment>
+            </column>
+        </property>
+        <property name="tousuBiaoti" type="string">
+            <column name="TOUSU_BIAOTI" length="32">
+                <comment>&#205;&#182;&#203;&#223;&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="tousuNeirong" type="string">
+            <column name="TOUSU_NEIRONG" length="512">
+                <comment>&#205;&#182;&#203;&#223;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="tousuZhuangtai" type="java.lang.Integer">
+            <column name="TOUSU_ZHUANGTAI">
+                <comment>&#205;&#182;&#203;&#223;&#215;&#180;&#204;&#172; 1-&#206;&#180;&#180;&#166;&#192;&#237; 2-&#180;&#166;&#192;&#237;&#214;&#208;
+                3-&#210;&#209;&#205;&#234;&#179;&#201;</comment>
+            </column>
+        </property>
+        <property name="tousuShijian" type="timestamp">
+            <column name="TOUSU_SHIJIAN" length="19">
+                <comment>&#205;&#182;&#203;&#223;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="chuliShijian" type="timestamp">
+            <column name="CHULI_SHIJIAN" length="19">
+                <comment>&#180;&#166;&#192;&#237;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="chuliNeirong" type="string">
+            <column name="CHULI_NEIRONG" length="512">
+                <comment>&#180;&#166;&#192;&#237;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
