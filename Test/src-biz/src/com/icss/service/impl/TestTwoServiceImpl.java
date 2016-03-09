@@ -22,6 +22,6 @@ public class TestTwoServiceImpl extends BaseServiceImpl implements ITestTwoServi
 		Map user = new HashMap();
 		user.put("username", "username1");
 		testService.insertUser();
-		this.insertOne("test.blob.insertUser", user);
+		this.insertOneMybatis("test.blob.insertUser", user);
 	}
 }

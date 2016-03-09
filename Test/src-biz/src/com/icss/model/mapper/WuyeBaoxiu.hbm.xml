@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-8 19:01:35 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="com.icss.model.WuyeBaoxiu" table="WUYE_BAOXIU" catalog="mymjxt">
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="xqId" type="string">
+            <column name="XQ_ID" length="50">
+                <comment>&#208;&#161;&#199;&#248;id</comment>
+            </column>
+        </property>
+        <property name="yonghuId" type="string">
+            <column name="YONGHU_ID" length="100">
+                <comment>&#211;&#195;&#187;&#167;ID</comment>
+            </column>
+        </property>
+        <property name="baoxiuBiaoti" type="string">
+            <column name="BAOXIU_BIAOTI" length="32">
+                <comment>&#177;&#168;&#208;&#222;&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="baoxiuLeixing" type="java.lang.Integer">
+            <column name="BAOXIU_LEIXING">
+                <comment>&#177;&#168;&#208;&#222;&#192;&#224;&#208;&#205; 1-&#203;&#174;&#181;&#231;&#206;&#172;&#208;&#222; 2-&#181;&#231;&#198;&#247;&#206;&#172;&#208;&#222;
+                3-&#198;&#228;&#203;&#251;&#206;&#172;&#208;&#222;</comment>
+            </column>
+        </property>
+        <property name="baoxiuShijianduan" type="java.lang.Integer">
+            <column name="BAOXIU_SHIJIANDUAN">
+                <comment>&#206;&#172;&#208;&#222;&#202;&#177;&#188;&#228;&#182;&#206;
+                &#214;&#184;&#207;&#163;&#205;&#251;&#201;&#207;&#195;&#197;&#206;&#172;&#208;&#222;&#181;&#196;&#202;&#177;&#188;&#228; 1-08:00-11:30 2-11:30-14:00 3-14:00-18:00
+                4-18:00-20:00</comment>
+            </column>
+        </property>
+        <property name="baoxiuNeirong" type="string">
+            <column name="BAOXIU_NEIRONG" length="512">
+                <comment>&#177;&#168;&#208;&#222;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="baoxiuZhuangtai" type="java.lang.Integer">
+            <column name="BAOXIU_ZHUANGTAI">
+                <comment>1-&#206;&#180;&#180;&#166;&#192;&#237; 2-&#180;&#166;&#192;&#237;&#214;&#208; 3-&#205;&#234;&#179;&#201;</comment>
+            </column>
+        </property>
+        <property name="baoxiuShijian" type="timestamp">
+            <column name="BAOXIU_SHIJIAN" length="19">
+                <comment>&#212;&#164;&#212;&#188;&#177;&#168;&#208;&#222;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="chuliShijian" type="timestamp">
+            <column name="CHULI_SHIJIAN" length="19">
+                <comment>&#180;&#166;&#192;&#237;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="tijiaoShijian" type="timestamp">
+            <column name="TIJIAO_SHIJIAN" length="19">
+                <comment>&#177;&#168;&#208;&#222;&#204;&#225;&#189;&#187;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

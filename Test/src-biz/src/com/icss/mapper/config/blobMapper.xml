@@ -18,4 +18,11 @@
 		    VALUES  
     	(#{username})
     </insert>
+    
+    <insert id="insertBaoxiu" parameterType="com.icss.model.WuyeBaoxiu">
+    	INSERT INTO WUYE_BAOXIU 
+    	(ID) 
+    	VALUES
+    	(#{id})
+    </insert> 
 </mapper>

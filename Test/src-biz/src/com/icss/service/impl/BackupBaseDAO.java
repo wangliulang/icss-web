@@ -9,10 +9,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.icss.framework.dao.IBaseDAO;
+import com.icss.framework.dao.IMyBatisBaseDAO;
 
 /*@Service(value="backupBaseDao")*/
-public class BackupBaseDAO implements IBaseDAO{
+public class BackupBaseDAO implements IMyBatisBaseDAO{
 	
 	private ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:database-backup.xml");
 	private SqlSessionFactory sessionFactory= (SqlSessionFactory)ac.getBean("sqlSessionFactory2");

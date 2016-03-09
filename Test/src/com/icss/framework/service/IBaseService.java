@@ -4,15 +4,31 @@ import java.util.List;
 
 public interface IBaseService {
 	
-	List<Object> find(String mapper, Object object);
+	public List<Object> findMybatis(String mapper, Object object);
 	
-	Object findOne(String mapper, Object object);
+	public Object findOneMybatis(String mapper, Object object);
 	
-	void insertOne(String mapper, Object object);
+	public void insertOneMybatis(String mapper, Object object);
 	
-	void insertList(String mapper, List<Object> objList);
+	public void insertListMybatis(String mapper, List<Object> objectList);
 	
-	void updateOne(String mapper, Object object);
+	public void updateOneMybatis(String mapper, Object object);
 	
-	void updateList(String mapper, List<Object> objList);
+	public void updateListMybatis(String mapper, List<Object> objectList);
+	
+	public List findHiber(String hql, Object[] param);
+	
+	public Object findOneHiber(String hql, Object[] param);
+	
+	public Object findByIdHiber(Class c, String id);
+	
+	public List findPageHiber(String hql, Object[] param, Integer page, Integer rows);
+	
+	public Long findCountHiber(String hql, Object[] param);
+	
+	public String insertOneHiber(Object object);
+	
+	public void saveOrUpdateHiber(Object object);
+	
+	public void deleteHiber(Object object);
 }

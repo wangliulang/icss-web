@@ -1,11 +1,6 @@
 package com.icss.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -26,8 +21,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.icss.framework.controller.BaseController;
+import com.icss.service.ITestService;
 import com.icss.service.ITestTwoService;
-import com.icss.service.impl.TestTwoServiceImpl;
 
 @Controller  
 public class TestController extends BaseController{
@@ -38,10 +33,13 @@ public class TestController extends BaseController{
 	@Autowired
 	private ITestTwoService testTwoService;
 	
+	@Autowired
+	private ITestService testService;
+	
 	@RequestMapping(value = "/helloworld")  
     public String helloworld() {  
 		System.out.println(request.getContextPath());
-		System.out.println("**************************************" + this.baseService.find("test.mapper.selectAll", null));
+		System.out.println("**************************************" + this.baseService.findMybatis("test.mapper.selectAll", null));
         // return "success"; //跳转到success页面  
         return "index";
 	}
@@ -59,6 +57,7 @@ public class TestController extends BaseController{
     public List json(
     		@RequestParam("key1") String key1,
             @RequestParam(value = "key2", required = false) String key2) {  
+		testService.insertUser();
 		Map map = new HashMap();
 		map.put("123", "123");
 		List list = new ArrayList();
@@ -75,7 +74,7 @@ public class TestController extends BaseController{
 	public void sendjson(@RequestBody Map[] users){
 		System.out.println(users.length);
 		try {
-			this.baseService.find("test.mapper.selectAll", null);
+			this.baseService.findMybatis("test.mapper.selectAll", null);
 //			Class.forName("com.mysql.jdbc.Driver");
 //			String url="jdbc:mysql://121.40.192.196:3306/mymjxt?user=root&password=jifang1303&useUnicode=true&characterEncoding=UTF-8";
 //			
@@ -119,7 +118,7 @@ public class TestController extends BaseController{
 
 	                        }else {
 	                        	param.put("testblob", b);
-	                        	this.baseService.insertOne("test.blob.insertBlob", param);
+	                        	this.baseService.insertOneMybatis("test.blob.insertBlob", param);
 	                        }
 						} catch (IOException e1) {
 							e1.printStackTrace();
