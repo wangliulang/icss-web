@@ -19,7 +19,7 @@
 		    </font>
 		</c:if>
 		<div id="w" class="easyui-window" title=" " data-options="" style="width:500px;height:200px;padding:5px;text-align: center;">
-			<form name="f" action="<c:url value='j_spring_security_check'/>" method="POST">
+			<form id="LoginForm" name="f" action="<c:url value='checklogin'/>" method="POST">
 			    <table  style="margin: auto;">
 			        <tr>
 			            <td>用户名:</td>
@@ -38,12 +38,24 @@
 			        </tr>
 			        <tr>
 			            <td colspan='2' align="center">
-			                <input name="submit" type="submit">  
-			                <input name="reset" type="reset">
+			                <input name="submit" type="button" onclick="loginSubmit()" value="登陆"/>  
+			                <input name="reset" type="reset" value="清空"/>
 			            </td>
 			        </tr>
 			    </table>
 			</form>
 		</div>
 	</body>
+	<script type="text/javascript">
+	function loginSubmit(){
+		var form = $('#LoginForm').serialize();
+		$.post('<c:url value="/checklogin" />',form,function(data){
+			if(data.authresult == "1")
+	    		window.location.href = "index.jsp";
+			else if (data.authresult == "0"){
+				alert("fail");
+			}
+		});
+	}
+	</script>
 </html>
