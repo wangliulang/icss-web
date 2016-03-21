@@ -17,16 +17,43 @@
     <!-- 不被SpringSecurity处理的访问路径，需要定义在前面  定义后访问对应url的请求不被拦截-->
     <http pattern="/easyui/**" security="none" />
     <http pattern="/login.jsp" security="none" />
+    <http pattern="/sessiontimeout" security="none" />
     
     <!-- 自动配置模式，拦截所有请求，有ROLE_USER才可以通过 -->
-    <http auto-config="true">
+<!--     <http auto-config="true">
         <intercept-url pattern="/**" access="ROLE_USER"/>
         <form-login login-page="/login.jsp" default-target-url="/index.jsp" authentication-failure-url="/login.jsp?login_error=1"/>
-        <!--logout-url：指定了用于响应退出系统请求的URL。其默认值为：/j_spring_security_logout。-->  
+ -->        <!--logout-url：指定了用于响应退出系统请求的URL。其默认值为：/j_spring_security_logout。-->  
         <!-- logout-success-url：退出系统后转向的URL。-->  
         <!-- invalidate-session：指定在退出系统时是否要销毁Session。-->  
-        <logout invalidate-session="true" logout-success-url="/login.jsp" logout-url="/j_spring_security_logout" />
+        <!-- <logout invalidate-session="true" logout-success-url="/login.jsp" logout-url="/j_spring_security_logout" />
+    </http> -->
+    
+    <http auto-config="false" entry-point-ref="entryPoint">
+    	<custom-filter position="FORM_LOGIN_FILTER" ref="ajaxLoginFilter"/>
+    	<!-- <custom-filter position="LOGOUT_FILTER" ref="ajaxLogoutFilter"/> -->
+    	<logout invalidate-session="true" logout-success-url="/login.jsp" logout-url="/j_spring_security_logout" />
+    	<intercept-url pattern="/**" access="ROLE_USER"/>
+    	<session-management invalid-session-url="/sessiontimeout"></session-management>
     </http>
+    
+    
+    <beans:bean id="entryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+    	<beans:constructor-arg value="/login.jsp" />
+    </beans:bean>
+    
+    <beans:bean id="ajaxLoginFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+    	<beans:property name="authenticationManager" ref="myAuthenticationManager"></beans:property>
+    	<beans:property name="authenticationFailureHandler" ref="ajaxFailureHandler"></beans:property>
+    	<beans:property name="authenticationSuccessHandler" ref="ajaxSuccessHandler"></beans:property>
+    	<beans:property name="filterProcessesUrl" value="/checklogin"></beans:property>
+    </beans:bean>
+    
+    <beans:bean id="ajaxFailureHandler" class="com.icss.framework.MyAuthenticationFailureHandler">
+    </beans:bean>
+    
+    <beans:bean id="ajaxSuccessHandler" class="com.icss.framework.MyAuthenticationSuccessHandler">
+    </beans:bean>
     
     <!-- 认证管理器。用户名密码都集成在配置文件中 -->
     <!--  

@@ -44,6 +44,16 @@
 		</div>
 	</body>
 <script type="text/javascript">
+$.ajaxSetup({   
+	contentType:"application/x-www-form-urlencoded;charset=utf-8",   
+	complete:function(XMLHttpRequest,textStatus){
+		// 通过XMLHttpRequest取得响应头，sessionstatus，
+		var sessionstatus=XMLHttpRequest.getResponseHeader("sessionstatus");
+		if(sessionstatus=="timeout"){   
+    		window.location.href = "login.jsp";
+    	}
+	}
+});
 	$("#get").on("click", function() {
 		$.post("json?key1=123&key2=中文", function(data){
 			var json = eval(data);
