@@ -32,7 +32,7 @@
 			</div>
 		</div>
 		<div data-options="border:true,region:'center'" title=" " >
-			<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+			<div id="tt" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
 				<div title="About" data-options="" style="padding:10px">
 					<input type="button" id="get" value="get" />
 					<input type="button" id="send" value="send" />
@@ -48,6 +48,7 @@ $.ajaxSetup({
 	contentType:"application/x-www-form-urlencoded;charset=utf-8",   
 	complete:function(XMLHttpRequest,textStatus){
 		// 通过XMLHttpRequest取得响应头，sessionstatus，
+		alert(1);
 		var sessionstatus=XMLHttpRequest.getResponseHeader("sessionstatus");
 		if(sessionstatus=="timeout"){   
     		window.location.href = "login.jsp";
@@ -55,10 +56,11 @@ $.ajaxSetup({
 	}
 });
 	$("#get").on("click", function() {
-		$.post("json?key1=123&key2=中文", function(data){
+		/* $.post("json?key1=123&key2=中文", function(data){
 			var json = eval(data);
 			alert(json.length);
-		});
+		}); */
+		addTab("测试iframe标签页", "test.jsp");
 	});
 	
 	$("#send").on("click", function() {
@@ -81,5 +83,19 @@ $.ajaxSetup({
 	        }
 	     });
 	});
+	
+	// 打开标签页
+	function addTab(title, url){    
+	    if ($('#tt').tabs('exists', title)){    
+	        $('#tt').tabs('select', title);    
+	    } else {    
+	        var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';    
+	        $('#tt').tabs('add',{    
+	            title:title,    
+	            content:content,    
+	            closable:true    
+	        });    
+	    }    
+	}
 </script>
 </html>
