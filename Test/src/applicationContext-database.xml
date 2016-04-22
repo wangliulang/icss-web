@@ -88,7 +88,7 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:pointcut id="pc" expression="execution(* com.icss.service.*.*(..))"/>
+		<aop:pointcut id="pc" expression="execution(* com.icss.service.*.*(..)) or execution(* com.icss.framework.service.*.*(..))" />
 		<aop:advisor pointcut-ref="pc" advice-ref="txAdvice" />
 	</aop:config>
 	
